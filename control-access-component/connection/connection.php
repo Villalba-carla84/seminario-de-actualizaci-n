@@ -4,7 +4,7 @@ $connection = null;
 
 try
 {
-    $connection = new PDO('mysql:host=127.0.0.1:3306;dbname=access-control-component', 'root', 'isft');
+    $connection = new PDO('mysql:host=127.0.0.1:3306;dbname=control-access-component', 'root', 'isft');
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (PDOException $connectionException) 
