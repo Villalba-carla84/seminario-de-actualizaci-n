@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="w3.css">
+	<title>Create Group</title>
+</head>
+<body>
+
+<h1>Create Group</h1>
+<input id="nameInput" type="text" placeholder="Nombre del grupo" value="">
+<input id="descripInput" type="descripcion" placeholder="Descripcion" value="">
+<button id="createUserButton">Create Group</button>
+
+</body>
+
+<script type="text/javascript">
+	
+
+
+function getFormValues()
+{
+	let createFormData =
+	{
+		name: null,
+		descripcion: null
+	};
+
+	createFormData.name = document.getElementById('nameInput').value;
+	createFormData.descripcion = document.getElementById('descripInput').value;
+
+	return createFormData;
+}
+
+function onCreateUserButtonClick()
+{
+	fetch('createGroup.php', { method:'post', body: JSON.stringify(getFormValues()) } ).then( response => response.json() ).then( response => { alert(response.description)} );
+	
+}
+
+document.getElementById('createUserButton').addEventListener('click', ()=>onCreateUserButtonClick() );
+
+</script>
+</html>
